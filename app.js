@@ -7,7 +7,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Configuración de Handlebars
-app.engine('hbs', engine({ // Cambia aquí
+app.engine('hbs', engine({
     layoutsDir: path.join(__dirname, 'views', 'layouts'),
     defaultLayout: 'main',
     extname: 'hbs',
@@ -25,26 +25,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Ruta de inicio
 app.get('/', (req, res) => res.render('pages/home'));
 
-app.get('/about', (req, res) => res.render('pages/about'));
+app.get('/pastor', (req, res) => res.render('pages/pastor'));
 
-app.get('/skills', (req, res) => res.render('pages/skills'));
+app.get('/golden', (req, res) => res.render('pages/golden'));
 
-app.get('/contact', (req, res) => res.render('pages/contact'));
-
-app.get('/projects', (req, res) => res.render('pages/projects'));
-
-//rutas de proyectos individuales
-app.get('/projects/mini-piano', (req, res) => res.render('projects/mini-piano'));
-app.get('/projects/encuesta-estudiantes', (req, res) => res.render('projects/encuesta-estudiantes'));
-app.get('/projects/desarrollo-humano', (req, res) => res.render('projects/desarrollo-humano'));
-
-
-//ruta para recibir el formulario de contacto
-app.post('/send-message', (req, res) => {
-    const { name, email, message } = req.body;
-    console.log(`Mensaje de ${name} <${email}>: ${message}`);
-    res.send('¡Tu mensaje ha sido enviado! Nos pondremos en contacto contigo pronto.');
-});
+app.get('/pequines', (req, res) => res.render('pages/pequines'));
 
 
 // Servidor escuchando
